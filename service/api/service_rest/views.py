@@ -5,11 +5,11 @@ from django.http import JsonResponse
 from common.json import ModelEncoder
 from django.views.decorators.http import require_http_methods
 
-# Create your views here.
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [ "vin", "sold" ]
+
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician
@@ -37,6 +37,7 @@ class AppointmentEncoder(ModelEncoder):
         "technician": TechnicianEncoder(),
     }
 
+
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
     if request.method == "GET":
@@ -49,13 +50,14 @@ def api_list_appointments(request):
         content = json.loads(request.body)
 
         try:
-            technician = Technician.objects.get(employee_id=content["technician"])
+            technician = Technician.objects.get(id=content["technician"])
             content["technician"] = technician
         except Technician.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid Technician"},
                 status=400,
             )
+        content["status"] = "pending"
 
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
@@ -94,6 +96,7 @@ def api_cancel_appointment(request, id):
                 status=400,
             )
 
+
 @require_http_methods(["PUT"])
 def api_finish_appointment(request, id):
     if request.method == "PUT":
@@ -107,6 +110,7 @@ def api_finish_appointment(request, id):
                 {"message": "Invalid Appointment"},
                 status=400,
             )
+
 
 @require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
