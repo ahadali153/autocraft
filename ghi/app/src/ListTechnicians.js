@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { NavLink } from "react-router-dom";
 
 
 function ListTechnicians() {
@@ -17,6 +18,16 @@ function ListTechnicians() {
 	}, []);
 
     return (
+        <div>
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+			<li className="nav-item">
+				<NavLink  to='./new'>
+                <button type="button">
+                    Create Technician Profile
+                    </button>
+				</NavLink>
+			</li>
+			</ul>
         <table className="table table-striped">
         <thead>
         <tr>
@@ -40,6 +51,7 @@ function ListTechnicians() {
         })}
         </tbody>
         </table>
+        </div>
     );
     }
 
