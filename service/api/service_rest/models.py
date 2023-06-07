@@ -18,6 +18,7 @@ class Technician(models.Model):
     def __str__(self):
         return self.employee_id
 
+
 class Appointment(models.Model):
     date_time = models.DateTimeField()
     reason = models.CharField(max_length=500)
@@ -34,4 +35,3 @@ class Appointment(models.Model):
 
     def __str__(self):
         return self.vin
-

@@ -22,16 +22,14 @@ def poll(repeat=True):
 
             for automobiles in content["autos"]:
                 AutomobileVO.objects.update_or_create(
-                    vin = automobiles["vin"],
-                    sold = automobiles["sold"]
+                    vin=automobiles["vin"],
+                    sold=automobiles["sold"]
                 )
-
         except Exception as e:
             print(e, file=sys.stderr)
 
         if (not repeat):
             break
-
         time.sleep(60)
 
 
