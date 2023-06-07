@@ -30,13 +30,78 @@ function Nav() {
 							</NavLink>
 						</li>
 						<li>
+							<NavLink className="nav-link" aria-current="page" to="/salespeople/create">
+								Create SalesPerson
+							</NavLink>
+						</li>
+						<li>
 							<NavLink className="nav-link" aria-current="page" to="/customers">
 								Customers
 							</NavLink>
 						</li>
 						<li>
+							<NavLink className="nav-link" aria-current="page" to="/customers/add">
+								Add Customers
+							</NavLink>
+						</li>
+						<li>
 							<NavLink className="nav-link" aria-current="page" to="/sales">
-								Sales
+								Sales List
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/sales/create">
+								Create a Sale
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/sales/history">
+								Sales History
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/technicians">
+								Technicians
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/technicians/new">
+								Add Technicians
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/appointments">
+								Appointments
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/appointments/new">
+								Create Service Appointment
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/appointments/history">
+								Service History
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/manufacturers">
+								Manufacturers
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/manufacturers/new">
+								Create Manufacturer
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/models">
+								Models
+							</NavLink>
+						</li>
+						<li>
+							<NavLink className="nav-link" aria-current="page" to="/models/create">
+								Create Models
 							</NavLink>
 						</li>
 					</ul>
