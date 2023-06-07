@@ -115,7 +115,7 @@ function CreateSaleForm() {
 					<form
 						onSubmit={handleSubmit}
 						className={formClasses}
-						id="create-conference-form"
+						id="create-sale-form"
 					>
 						<div className="mb-3">
 							<select

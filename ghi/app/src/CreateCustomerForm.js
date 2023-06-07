@@ -58,7 +58,7 @@ function CreateCustomerForm() {
 					<form
 						className={formClasses}
 						onSubmit={handleSubmit}
-						id="create-shoe-form"
+						id="create-customer-form"
 					>
 						<div className="form-floating mb-3">
 							<input
