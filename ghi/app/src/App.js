@@ -1,18 +1,38 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './MainPage';
-import Nav from './Nav';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./MainPage";
+import Nav from "./Nav";
+import SalespeopleList from "./SalespeopleList";
+import CreateSalespersonForm from "./CreateSalespersonForm";
+import CustomersList from "./CustomersList";
+import CreateCustomerForm from "./CreateCustomerForm";
+import SalesList from "./SalesList";
+import CreateSaleForm from "./CreateSaleForm";
+import SalespersonHistory from "./SalesPersonHistory";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Nav />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Nav />
+			<div className="container">
+				<Routes>
+					<Route path="/" element={<MainPage />} />
+					<Route path="salespeople">
+						<Route index element={<SalespeopleList />} />
+						<Route path="create" element={<CreateSalespersonForm />} />
+					</Route>
+					<Route path="customers">
+						<Route index element={<CustomersList />} />
+						<Route path="add" element={<CreateCustomerForm />} />
+					</Route>
+					<Route path="sales">
+						<Route index element={<SalesList />} />
+						<Route path="create" element={<CreateSaleForm />} />
+						<Route path="history" element={<SalespersonHistory />} />
+					</Route>
+				</Routes>
+			</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;

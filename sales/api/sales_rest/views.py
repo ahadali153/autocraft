@@ -12,11 +12,6 @@ class SalespeopleEncoder(ModelEncoder):
     properties = ["first_name", "last_name", "employee_id", "id"]
 
 
-class CustomerListEncoder(ModelEncoder):
-    model = Customer
-    properties = ["first_name", "last_name", "id"]
-
-
 class CustomerDetailEncoder(ModelEncoder):
     model = Customer
     properties = ["first_name", "last_name", "address", "phone_number", "id"]
@@ -25,12 +20,6 @@ class CustomerDetailEncoder(ModelEncoder):
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["vin"]
-
-
-class SalesListEncoder(ModelEncoder):
-    model = Sale
-    properties = ["customer", "automobile", "id"]
-    encoders = {"automobile": AutomobileVOEncoder(), "customer": CustomerListEncoder()}
 
 
 class SaleDetailEncoder(ModelEncoder):
@@ -45,7 +34,7 @@ class SaleDetailEncoder(ModelEncoder):
 def api_list_sales(request):
     if request.method == "GET":
         sales = Sale.objects.all()
-        return JsonResponse({"sales": sales}, encoder=SalesListEncoder)
+        return JsonResponse({"sales": sales}, encoder=SaleDetailEncoder)
     else:
         content = json.loads(request.body)
         try:
@@ -207,7 +196,7 @@ def api_show_salesperson(request, id):
 def api_list_customers(request):
     if request.method == "GET":
         customers = Customer.objects.all()
-        return JsonResponse({"customers": customers}, encoder=CustomerListEncoder)
+        return JsonResponse({"customers": customers}, encoder=CustomerDetailEncoder)
     else:
         try:
             content = json.loads(request.body)
