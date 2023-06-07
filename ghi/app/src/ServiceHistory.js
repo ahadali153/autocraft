@@ -4,6 +4,7 @@ import React, { useState, useEffect} from 'react';
 function ServiceHistory() {
     const [appointments, setAppointments] = useState([]);
     const [autos, setAutos] = useState([]);
+    const [matchVIN, setMatchVIN] = useState('')
 
 
     const fetchData = async () => {
@@ -39,9 +40,20 @@ function ServiceHistory() {
         }
     }
 
+    const handleVINChange = (event) => {
+        const value = event.target.value;
+        setMatchVIN(value);
+    };
+
 
 
     return (
+        <>
+        <input
+        type="text" placeholder='Find VIN'
+        value={matchVIN}
+        onChange={handleVINChange}
+        />
         <table className="table table-striped">
         <thead>
         <tr>
@@ -58,8 +70,9 @@ function ServiceHistory() {
 
         </tr>
         </thead>
-        <tbody>
-        {appointments.map((appointment, index) => {
+        <tbody>{appointments
+        .filter(appointment => appointment.vin.includes(matchVIN))
+        .map((appointment, index) => {
         return (
         <tr key={index}>
             <td>{ appointment.vin }</td>
@@ -75,6 +88,7 @@ function ServiceHistory() {
         })}
         </tbody>
         </table>
+        </>
     );
     }
 

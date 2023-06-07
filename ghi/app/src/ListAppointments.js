@@ -80,7 +80,9 @@ function ListAppointments() {
         </tr>
         </thead>
         <tbody>
-        {appointments.map((appointment, index) => {
+        {appointments
+        .filter(appointment => appointment.status === 'pending')
+        .map((appointment, index) => {
         return (
         <tr key={index}>
             <td>{ appointment.vin }</td>
