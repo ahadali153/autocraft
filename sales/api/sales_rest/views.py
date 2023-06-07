@@ -1,33 +1,8 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Sale, Salesperson, AutomobileVO, Customer
 import json
-from common.json import ModelEncoder
+from .encoders import SalespeopleEncoder, SaleDetailEncoder, CustomerDetailEncoder
 from django.views.decorators.http import require_http_methods
-# Create your views here.
-
-
-class SalespeopleEncoder(ModelEncoder):
-    model = Salesperson
-    properties = ["first_name", "last_name", "employee_id", "id"]
-
-
-class CustomerDetailEncoder(ModelEncoder):
-    model = Customer
-    properties = ["first_name", "last_name", "address", "phone_number", "id"]
-
-
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = ["vin"]
-
-
-class SaleDetailEncoder(ModelEncoder):
-    model = Sale
-    properties = ["customer", "automobile", "price", "salesperson", "id"]
-    encoders = {"automobile": AutomobileVOEncoder(),
-                "salesperson": SalespeopleEncoder(),
-                "customer": CustomerDetailEncoder()}
 
 
 @require_http_methods(["GET", "POST"])
@@ -155,7 +130,6 @@ def api_list_salespeople(request):
 
 @require_http_methods(["GET", "DELETE", "PUT"])
 def api_show_salesperson(request, id):
-
     if request.method == "GET":
         try:
             salesperson = Salesperson.objects.get(id=id)
@@ -209,9 +183,9 @@ def api_list_customers(request):
         except:
             return JsonResponse({"message": "Could not create the customer"}, status=400)
 
+
 @require_http_methods(["GET", "DELETE", "PUT"])
 def api_show_customer(request, id):
-
     if request.method == "GET":
         try:
             customer = Customer.objects.get(id=id)

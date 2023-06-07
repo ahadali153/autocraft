@@ -21,7 +21,6 @@ function CreateSalespersonForm() {
 		data.first_name = formData.first_name;
 		data.last_name = formData.last_name;
 		data.employee_id = formData.employee_id;
-		console.log(data);
 
 		const salespersonURL = "http://localhost:8090/api/salespeople/";
 		const fetchConfig = {

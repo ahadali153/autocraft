@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Sale, Customer, Salesperson
-# Register your models here.
 
 
 @admin.register(Sale)

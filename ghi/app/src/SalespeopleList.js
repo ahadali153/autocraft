@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function SalespeopleList() {
 	const [salespeople, setSalespeople] = useState([]);
@@ -33,37 +34,46 @@ function SalespeopleList() {
 	};
 
 	return (
-		<table className="table table-hover table-striped-columns">
-			<colgroup>
-				<col style={{ width: "30%" }} />
-				<col style={{ width: "30%" }} />
-				<col style={{ width: "30%" }} />
-				<col style={{ width: "10%" }} />
-			</colgroup>
-			<thead className="table-dark">
-				<tr>
-					<th>Employee ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				{salespeople.map((salesperson, index) => {
-					return (
-						<tr key={index}>
-							<td>{salesperson.employee_id}</td>
-							<td>{salesperson.first_name}</td>
-							<td>{salesperson.last_name}</td>
-							<td>
-								<button onClick={() => deleteSalesperson(salesperson.id)}>
-									Remove
-								</button>
-							</td>
-						</tr>
-					);
-				})}
-			</tbody>
-		</table>
+		<div className="container-fluid">
+			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+				<li className="nav-item">
+					<NavLink className="nav-link" aria-current="page" to="./create">
+						Create a new salesperson!
+					</NavLink>
+				</li>
+			</ul>
+			<table className="table table-hover table-striped-columns">
+				<colgroup>
+					<col style={{ width: "30%" }} />
+					<col style={{ width: "30%" }} />
+					<col style={{ width: "30%" }} />
+					<col style={{ width: "10%" }} />
+				</colgroup>
+				<thead className="table-dark">
+					<tr>
+						<th>Employee ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					{salespeople.map((salesperson, index) => {
+						return (
+							<tr key={index}>
+								<td>{salesperson.employee_id}</td>
+								<td>{salesperson.first_name}</td>
+								<td>{salesperson.last_name}</td>
+								<td>
+									<button onClick={() => deleteSalesperson(salesperson.id)}>
+										Remove
+									</button>
+								</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
 	);
 }
 
