@@ -166,8 +166,8 @@ def api_vehicle_models(request):
     else:
         try:
             content = json.loads(request.body)
-            manufacturer_id = content["manufacturer_id"]
-            manufacturer = Manufacturer.objects.get(id=manufacturer_id)
+            manufacturer = content["manufacturer"]
+            manufacturer = Manufacturer.objects.get(name=manufacturer)
             content["manufacturer"] = manufacturer
             model = VehicleModel.objects.create(**content)
             return JsonResponse(
