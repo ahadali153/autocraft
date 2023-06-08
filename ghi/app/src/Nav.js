@@ -1,12 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Nav() {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-success">
 			<div className="container-fluid">
-				<NavLink className="navbar-brand" to="/">
+				<Link className="navbar-brand" to="/">
 					CarCar
-				</NavLink>
+				</Link>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -28,69 +28,69 @@ function Nav() {
 								aria-expanded="false"
 								style={{ color: "white" }}
 							>
+								Salespeople
+							</button>
+							<ul className="dropdown-menu">
+								<li>
+									<Link className="dropdown-item" to="/salespeople">
+										All Salespeople
+									</Link>
+								</li>
+								<li>
+									<Link className="dropdown-item" to="/salespeople/create">
+										Create a Salesperson
+									</Link>
+								</li>
+							</ul>
+						</div>
+						<div className="dropdown">
+							<button
+								className="btn dropdown-toggle"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+								style={{ color: "white" }}
+							>
+								Customers
+							</button>
+							<ul className="dropdown-menu">
+								<li>
+									<Link className="dropdown-item" to="/customers">
+										All Customers
+									</Link>
+								</li>
+								<li>
+									<Link className="dropdown-item" to="/customers/add">
+										Add a customer
+									</Link>
+								</li>
+							</ul>
+						</div>
+						<div className="dropdown">
+							<button
+								className="btn dropdown-toggle"
+								type="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+								style={{ color: "white" }}
+							>
 								Sales
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/salespeople">
-										All Salespeople
-									</NavLink>
-								</li>
-								<li>
-									<NavLink className="dropdown-item" to="/salespeople/create">
-										Create a Salesperson
-									</NavLink>
-								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Customers
-							</button>
-							<ul className="dropdown-menu">
-								<li>
-									<NavLink className="dropdown-item" to="/customers">
-										All Customers
-									</NavLink>
-								</li>
-								<li>
-									<NavLink className="dropdown-item" to="/customers/add">
-										Add a customer
-									</NavLink>
-								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Customers
-							</button>
-							<ul className="dropdown-menu">
-								<li>
-									<NavLink className="dropdown-item" to="/sales">
+									<Link className="dropdown-item" to="/sales">
 										All Sales
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/sales/create">
+									<Link className="dropdown-item" to="/sales/create">
 										Create a sale
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/sales/history">
+									<Link className="dropdown-item" to="/sales/history">
 										Sales History
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -106,14 +106,14 @@ function Nav() {
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/technicians">
+									<Link className="dropdown-item" to="/technicians">
 										All Technicians
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/technicians/new">
+									<Link className="dropdown-item" to="/technicians/new">
 										Create a Technician
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -129,19 +129,19 @@ function Nav() {
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/appointments">
+									<Link className="dropdown-item" to="/appointments">
 										All Appointments
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/appointments/new">
+									<Link className="dropdown-item" to="/appointments/new">
 										Create an Appointment
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/appointments/history">
+									<Link className="dropdown-item" to="/appointments/history">
 										Service History
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -157,14 +157,14 @@ function Nav() {
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/manufacturers">
+									<Link className="dropdown-item" to="/manufacturers">
 										All Manufacturers
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/manufacturers/new">
+									<Link className="dropdown-item" to="/manufacturers/new">
 										Add a manufacturer
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -180,14 +180,14 @@ function Nav() {
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/models">
+									<Link className="dropdown-item" to="/models">
 										All Models
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/models/create">
+									<Link className="dropdown-item" to="/models/create">
 										Add a Model
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -203,14 +203,14 @@ function Nav() {
 							</button>
 							<ul className="dropdown-menu">
 								<li>
-									<NavLink className="dropdown-item" to="/automobiles">
+									<Link className="dropdown-item" to="/automobiles">
 										All Automobiles
-									</NavLink>
+									</Link>
 								</li>
 								<li>
-									<NavLink className="dropdown-item" to="/automobiles/create">
+									<Link className="dropdown-item" to="/automobiles/create">
 										Add an Automobile
-									</NavLink>
+									</Link>
 								</li>
 							</ul>
 						</div>
