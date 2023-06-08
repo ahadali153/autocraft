@@ -28,7 +28,7 @@ function Nav() {
 								aria-expanded="false"
 								style={{ color: "white" }}
 							>
-								Salespeople
+								Sales
 							</button>
 							<ul className="dropdown-menu">
 								<li>
@@ -41,19 +41,7 @@ function Nav() {
 										Create a Salesperson
 									</Link>
 								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Customers
-							</button>
-							<ul className="dropdown-menu">
+								<div className="dropdown-divider"></div>
 								<li>
 									<Link className="dropdown-item" to="/customers">
 										All Customers
@@ -64,19 +52,7 @@ function Nav() {
 										Add a customer
 									</Link>
 								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Sales
-							</button>
-							<ul className="dropdown-menu">
+								<div className="dropdown-divider"></div>
 								<li>
 									<Link className="dropdown-item" to="/sales">
 										All Sales
@@ -102,7 +78,7 @@ function Nav() {
 								aria-expanded="false"
 								style={{ color: "white" }}
 							>
-								Technicians
+								Services
 							</button>
 							<ul className="dropdown-menu">
 								<li>
@@ -115,19 +91,7 @@ function Nav() {
 										Create a Technician
 									</Link>
 								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Appointments
-							</button>
-							<ul className="dropdown-menu">
+								<div className="dropdown-divider"></div>
 								<li>
 									<Link className="dropdown-item" to="/appointments">
 										All Appointments
@@ -153,7 +117,7 @@ function Nav() {
 								aria-expanded="false"
 								style={{ color: "white" }}
 							>
-								Manufacturers
+								Inventory
 							</button>
 							<ul className="dropdown-menu">
 								<li>
@@ -166,19 +130,7 @@ function Nav() {
 										Add a manufacturer
 									</Link>
 								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Models
-							</button>
-							<ul className="dropdown-menu">
+								<div className="dropdown-divider"></div>
 								<li>
 									<Link className="dropdown-item" to="/models">
 										All Models
@@ -189,19 +141,7 @@ function Nav() {
 										Add a Model
 									</Link>
 								</li>
-							</ul>
-						</div>
-						<div className="dropdown">
-							<button
-								className="btn dropdown-toggle"
-								type="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-								style={{ color: "white" }}
-							>
-								Automobiles
-							</button>
-							<ul className="dropdown-menu">
+								<div className="dropdown-divider"></div>
 								<li>
 									<Link className="dropdown-item" to="/automobiles">
 										All Automobiles
