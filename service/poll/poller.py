@@ -18,12 +18,13 @@ def poll(repeat=True):
             url = "http://project-beta-inventory-api-1:8000/api/automobiles"
             response = requests.get(url)
             content = json.loads(response.content)
-            print(content)
 
             for automobiles in content["autos"]:
                 AutomobileVO.objects.update_or_create(
-                    vin=automobiles["vin"],
-                    sold=automobiles["sold"]
+                    sold=automobiles["sold"],
+                    defaults={
+                        "vin": automobiles["vin"]
+                        }
                 )
         except Exception as e:
             print(e, file=sys.stderr)
