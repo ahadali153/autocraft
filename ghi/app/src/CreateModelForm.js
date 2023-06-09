@@ -123,7 +123,7 @@ function CreateModelForm() {
 						</button>
 					</form>
 					<div className={messageClasses} id="success-message">
-						Salesperson has been created!
+						Model has been created!
 					</div>
 				</div>
 			</div>

@@ -1,74 +1,68 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-
 function ListAppointments() {
-    const [appointments, setAppointments] = useState([]);
-    const [autos, setAutos] = useState([]);
+	const [appointments, setAppointments] = useState([]);
+	const [autos, setAutos] = useState([]);
 
-    const fetchData = async () => {
-        const url = "http://localhost:8080/api/appointments/";
-        const response = await fetch(url);
+	const fetchData = async () => {
+		const url = "http://localhost:8080/api/appointments/";
+		const response = await fetch(url);
 
-        if (response.ok) {
-            const data = await response.json();
-            setAppointments(data.appointments)
-        }
-    };
+		if (response.ok) {
+			const data = await response.json();
+			setAppointments(data.appointments);
+		}
+	};
 
-    const fetchAutosData = async () => {
-        const autosUrl = "http://localhost:8100/api/automobiles/";
-        const response = await fetch(autosUrl);
+	const fetchAutosData = async () => {
+		const autosUrl = "http://localhost:8100/api/automobiles/";
+		const response = await fetch(autosUrl);
 
-        if (response.ok) {
-            const autosData = await response.json();
-            setAutos(autosData.autos)
-        }
-    }
+		if (response.ok) {
+			const autosData = await response.json();
+			setAutos(autosData.autos);
+		}
+	};
 
-    useEffect(() => {
+	useEffect(() => {
 		fetchData();
-        fetchAutosData();
+		fetchAutosData();
 	}, []);
 
-    const isVIP = (vin) => {
-        if (autos.some(auto => auto.vin === vin)) {
-            return 'Yes';
-        } else {
-            return 'No';
-        }
-    }
+	const isVIP = (vin) => {
+		if (autos.some((auto) => auto.vin === vin)) {
+			return "Yes";
+		} else {
+			return "No";
+		}
+	};
 
-    const finish = async (id) => {
-        const finishURL = `http://localhost:8080/api/appointments/${id}/finish`;
-        const fetchConfig = {
-            method: "PUT",
-        };
-        const response = await fetch(finishURL, fetchConfig);
-        if (response.ok) {
-            fetchData();
-        } else {
-            console.log("ERROR: COULD NOT FINISH STATUS")
-        }
-    };
+	const finish = async (id) => {
+		const finishURL = `http://localhost:8080/api/appointments/${id}/finish`;
+		const fetchConfig = {
+			method: "PUT",
+		};
+		const response = await fetch(finishURL, fetchConfig);
+		if (response.ok) {
+			fetchData();
+		} else {
+			console.log("ERROR: COULD NOT FINISH STATUS");
+		}
+	};
 
-    const cancel = async (id) => {
-        const cancelURL = `http://localhost:8080/api/appointments/${id}/cancel`;
-        const fetchConfig = {
-            method: "PUT",
-        };
-        const response = await fetch(cancelURL, fetchConfig);
-        if (response.ok) {
-            fetchData();
-        } else {
-            console.log("ERROR: COULD NOT CANCEL STATUS")
-        }
-    };
-
-    let fixedTime = { year: 'numeric', month: 'numeric',
-        day: 'numeric', hour: 'numeric', minute: 'numeric'
-    };
-
+	const cancel = async (id) => {
+		const cancelURL = `http://localhost:8080/api/appointments/${id}/cancel`;
+		const fetchConfig = {
+			method: "PUT",
+		};
+		const response = await fetch(cancelURL, fetchConfig);
+		if (response.ok) {
+			fetchData();
+		} else {
+			console.log("ERROR: COULD NOT CANCEL STATUS");
+		}
+	};
     return (
         <div>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -137,4 +131,4 @@ function ListAppointments() {
     );
     }
 
-    export default ListAppointments;
+export default ListAppointments;
