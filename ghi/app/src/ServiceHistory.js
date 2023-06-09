@@ -45,15 +45,21 @@ function ServiceHistory() {
 
 	return (
 		<>
-			<h1>Service History</h1>
-			<input
-				type="text"
-				placeholder="Find VIN"
-				value={matchVIN}
-				onChange={handleVINChange}
-			/>
 			<table className="table table-striped">
 				<thead>
+					<tr>
+						<th style={{ fontSize: "2em" }}>Service History</th>
+					</tr>
+					<tr>
+						<th>
+							<input
+								type="text"
+								placeholder="Find VIN"
+								value={matchVIN}
+								onChange={handleVINChange}
+							/>
+						</th>
+					</tr>
 					<tr>
 						<th>VIN</th>
 						<th>VIP</th>
