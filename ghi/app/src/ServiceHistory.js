@@ -77,12 +77,17 @@ function ServiceHistory() {
         <tbody>{appointments
         .filter(appointment => appointment.vin.includes(matchVIN))
         .map((appointment, index) => {
+        let formatDate = new Date(appointment.date_time);
         return (
         <tr key={index}>
             <td>{ appointment.vin }</td>
             <td>{ isVIP(appointment.vin) }</td>
             <td>{ appointment.customer }</td>
-            <td>{ appointment.date_time }</td>
+            <td>{ formatDate.toLocaleString('en-US',
+                { year: 'numeric', month: 'numeric',
+                    day: 'numeric', hour: '2-digit', minute: '2-digit'
+                })}
+            </td>
             <td>{ appointment.technician.last_name } { appointment.technician.employee_id }</td>
             <td>{ appointment.reason }</td>
             <td>{ appointment.status }</td>
