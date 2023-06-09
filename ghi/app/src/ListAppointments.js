@@ -65,6 +65,10 @@ function ListAppointments() {
         }
     };
 
+    let fixedTime = { year: 'numeric', month: 'numeric',
+        day: 'numeric', hour: 'numeric', minute: 'numeric'
+    };
+
     return (
         <div>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -101,12 +105,17 @@ function ListAppointments() {
         {appointments
         .filter(appointment => appointment.status === 'pending')
         .map((appointment, index) => {
+        let formatDate = new Date(appointment.date_time);
         return (
         <tr key={index}>
             <td>{ appointment.vin }</td>
             <td>{ isVIP(appointment.vin) }</td>
             <td>{ appointment.customer }</td>
-            <td>{ appointment.date_time }</td>
+            <td>{ formatDate.toLocaleString('en-US',
+                { year: 'numeric', month: 'numeric',
+                    day: 'numeric', hour: '2-digit', minute: '2-digit'
+                })}
+            </td>
             <td>{ appointment.technician.last_name } { appointment.technician.employee_id }</td>
             <td>{ appointment.reason }</td>
             <td>

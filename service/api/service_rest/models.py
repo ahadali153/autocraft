@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=350, unique=True)
     sold = models.CharField(max_length=20)

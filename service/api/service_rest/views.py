@@ -5,6 +5,7 @@ from django.views.decorators.http import require_http_methods
 from .encoders import AppointmentEncoder, TechnicianEncoder
 
 
+
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
     if request.method == "GET":
