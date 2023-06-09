@@ -63,72 +63,73 @@ function ListAppointments() {
 			console.log("ERROR: COULD NOT CANCEL STATUS");
 		}
 	};
-    return (
-        <div>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-			<li className="nav-item">
-				<NavLink  to='./new'>
-                <button type="button">
-                    Schedule Service
-                    </button>
-				</NavLink>
-			</li>
-            <li className="nav-item">
-				<NavLink  to='./history'>
-                <button type="button">
-                    Schedule History
-                    </button>
-				</NavLink>
-			</li>
+	return (
+		<div>
+			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+				<li className="nav-item">
+					<NavLink to='./new'>
+						<button type="button">
+							Schedule Service
+						</button>
+					</NavLink>
+				</li>
+				<li className="nav-item">
+					<NavLink to='./history'>
+						<button type="button">
+							Schedule History
+						</button>
+					</NavLink>
+				</li>
 			</ul>
-        <table className="table table-striped">
-        <thead>
-        <tr>
-            <th style={{ fontSize: '2em' }}>Service Appointments</th>
-        </tr>
-        <tr>
-            <th>VIN</th>
-            <th>VIP</th>
-            <th>Customer</th>
-            <th>Appointment</th>
-            <th>Technician</th>
-            <th>Reason</th>
-        </tr>
-        </thead>
-        <tbody>
-        {appointments
-        .filter(appointment => appointment.status === 'pending')
-        .map((appointment, index) => {
-        let formatDate = new Date(appointment.date_time);
-        return (
-        <tr key={index}>
-            <td>{ appointment.vin }</td>
-            <td>{ isVIP(appointment.vin) }</td>
-            <td>{ appointment.customer }</td>
-            <td>{ formatDate.toLocaleString('en-US',
-                { year: 'numeric', month: 'numeric',
-                    day: 'numeric', hour: '2-digit', minute: '2-digit'
-                })}
-            </td>
-            <td>{ appointment.technician.last_name } { appointment.technician.employee_id }</td>
-            <td>{ appointment.reason }</td>
-            <td>
-                <button style = {{backgroundColor:'green', color:'white'}}
-                onClick={() => finish(appointment.id)}>finish
-                </button>
-            </td>
-            <td>
-                <button style = {{backgroundColor:'red', color:'white'}}
-                onClick={() => cancel(appointment.id)}>cancel
-                </button>
-            </td>
-        </tr>
-        );
-        })}
-        </tbody>
-        </table>
-        </div>
-    );
-    }
+			<table className="table table-striped">
+				<thead>
+					<tr>
+						<th style={{ fontSize: '2em' }}>Service Appointments</th>
+					</tr>
+					<tr>
+						<th>VIN</th>
+						<th>VIP</th>
+						<th>Customer</th>
+						<th>Appointment</th>
+						<th>Technician</th>
+						<th>Reason</th>
+					</tr>
+				</thead>
+				<tbody>
+					{appointments
+						.filter(appointment => appointment.status === 'pending')
+						.map((appointment, index) => {
+							let formatDate = new Date(appointment.date_time);
+							return (
+								<tr key={index}>
+									<td>{appointment.vin}</td>
+									<td>{isVIP(appointment.vin)}</td>
+									<td>{appointment.customer}</td>
+									<td>{formatDate.toLocaleString('en-US',
+										{
+											year: 'numeric', month: 'numeric',
+											day: 'numeric', hour: '2-digit', minute: '2-digit'
+										})}
+									</td>
+									<td>{appointment.technician.last_name} {appointment.technician.employee_id}</td>
+									<td>{appointment.reason}</td>
+									<td>
+										<button style={{ backgroundColor: 'green', color: 'white' }}
+											onClick={() => finish(appointment.id)}>finish
+										</button>
+									</td>
+									<td>
+										<button style={{ backgroundColor: 'red', color: 'white' }}
+											onClick={() => cancel(appointment.id)}>cancel
+										</button>
+									</td>
+								</tr>
+							);
+						})}
+				</tbody>
+			</table>
+		</div>
+	);
+}
 
 export default ListAppointments;
