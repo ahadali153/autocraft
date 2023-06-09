@@ -28,13 +28,13 @@ class Tests(TransactionTestCase):
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for the path projects/")
 
     def test_sales_people_delete(self):
-        Salesperson.objects.create(first_name="first", last_name="last", employee_id=1)
+        salesperson = Salesperson.objects.create(first_name="first", last_name="last", employee_id=1)
 
         client = Client()
-        response = client.delete("/api/salespeople/1/")
+        response = client.delete(f"/api/salespeople/{salesperson.id}/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for salespeople delete.")
 
-        response = client.delete("/api/salespeople/1/")
+        response = client.delete(f"/api/salespeople/{salesperson.id}/")
         self.assertEqual(response.status_code, 404, msg="Did not get a 404 OK salespeople delete of an unknown id.")
 
     ####CUSTOMER ENDPOINTS
