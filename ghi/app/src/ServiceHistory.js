@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 function ServiceHistory() {
@@ -28,9 +28,9 @@ function ServiceHistory() {
     }
 
     useEffect(() => {
-		fetchData();
+        fetchData();
         fetchAutosData();
-	}, []);
+    }, []);
 
     const isVIP = (vin) => {
         if (autos.some(auto => auto.vin === vin)) {
@@ -49,56 +49,57 @@ function ServiceHistory() {
 
     return (
         <>
-        <table className="table table-striped">
-        <thead>
-        <tr>
-            <th style={{ fontSize: '2em' }}>Service History</th>
-        </tr>
-        <tr>
-        <th>
-        <input
-        type="text" placeholder='Find VIN'
-        value={matchVIN}
-        onChange={handleVINChange}
-        />
-        </th>
-        </tr>
-        <tr>
-            <th>VIN</th>
-            <th>VIP</th>
-            <th>Customer</th>
-            <th>Appointment</th>
-            <th>Technician</th>
-            <th>Reason</th>
-            <th>Status</th>
+            <h1 style={{ fontSize: '2em' }}>Service History</h1>
+            <input
+                type="text" placeholder='Find VIN'
+                value={matchVIN}
+                onChange={handleVINChange}
+            />
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>VIN</th>
+                        <th>VIP</th>
+                        <th>Customer</th>
+                        <th>Appointment</th>
+                        <th>Technician</th>
+                        <th>Reason</th>
+                        <th>Status</th>
 
-        </tr>
-        </thead>
-        <tbody>{appointments
-        .filter(appointment => appointment.vin.includes(matchVIN))
-        .map((appointment, index) => {
-        let formatDate = new Date(appointment.date_time);
-        return (
-        <tr key={index}>
-            <td>{ appointment.vin }</td>
-            <td>{ isVIP(appointment.vin) }</td>
-            <td>{ appointment.customer }</td>
-            <td>{ formatDate.toLocaleString('en-US',
-                { year: 'numeric', month: 'numeric',
-                    day: 'numeric', hour: '2-digit', minute: '2-digit'
-                })}
-            </td>
-            <td>{ appointment.technician.last_name } { appointment.technician.employee_id }</td>
-            <td>{ appointment.reason }</td>
-            <td>{ appointment.status }</td>
+                    </tr>
+                </thead>
+                <tbody>{appointments
+                    .filter(appointment => appointment.vin.includes(matchVIN))
+                    .map((appointment, index) => {
+                        let formatDate = new Date(appointment.date_time);
+                        return (
+                            <tr key={index}>
+                                <td>{appointment.vin}</td>
+                                <td>{isVIP(appointment.vin)}</td>
+                                <td>{appointment.customer}</td>
+                                <td>{formatDate.toLocaleString('en-US',
+                                    {
+                                        year: 'numeric', month: 'numeric',
+                                        day: 'numeric', hour: '2-digit', minute: '2-digit'
+                                    })}
+                                </td>
+                                <td>{appointment.technician.last_name} {appointment.technician.employee_id}</td>
+                                <td>{appointment.reason}</td>
+                                <td>{appointment.status}</td>
 
-        </tr>
-        );
-        })}
-        </tbody>
-        </table>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
         </>
     );
-    }
+}
 
-    export default ServiceHistory;
+export default ServiceHistory;
