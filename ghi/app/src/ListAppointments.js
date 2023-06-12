@@ -67,25 +67,19 @@ function ListAppointments() {
 		<div>
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
-					<NavLink to='./new'>
-						<button type="button">
-							Schedule Service
-						</button>
+					<NavLink className="nav-link" aria-current="page" to="./new">
+						Schedule Service
 					</NavLink>
 				</li>
 				<li className="nav-item">
-					<NavLink to='./history'>
-						<button type="button">
-							Schedule History
-						</button>
+					<NavLink className="nav-link" aria-current="page" to="./history">
+						Schedule History
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-striped">
+			<h1 style={{ fontSize: "2em" }}>Service Appointments</h1>
+			<table className="table table-hover table-striped-columns">
 				<thead>
-					<tr>
-						<th style={{ fontSize: '2em' }}>Service Appointments</th>
-					</tr>
 					<tr>
 						<th>VIN</th>
 						<th>VIP</th>
@@ -97,7 +91,7 @@ function ListAppointments() {
 				</thead>
 				<tbody>
 					{appointments
-						.filter(appointment => appointment.status === 'pending')
+						.filter((appointment) => appointment.status === "pending")
 						.map((appointment, index) => {
 							let formatDate = new Date(appointment.date_time);
 							return (
@@ -105,22 +99,34 @@ function ListAppointments() {
 									<td>{appointment.vin}</td>
 									<td>{isVIP(appointment.vin)}</td>
 									<td>{appointment.customer}</td>
-									<td>{formatDate.toLocaleString('en-US',
-										{
-											year: 'numeric', month: 'numeric',
-											day: 'numeric', hour: '2-digit', minute: '2-digit'
+									<td>
+										{formatDate.toLocaleString("en-US", {
+											year: "numeric",
+											month: "numeric",
+											day: "numeric",
+											hour: "2-digit",
+											minute: "2-digit",
 										})}
 									</td>
-									<td>{appointment.technician.last_name} {appointment.technician.employee_id}</td>
+									<td>
+										{appointment.technician.last_name}{" "}
+										{appointment.technician.employee_id}
+									</td>
 									<td>{appointment.reason}</td>
 									<td>
-										<button style={{ backgroundColor: 'green', color: 'white' }}
-											onClick={() => finish(appointment.id)}>finish
+										<button
+											style={{ backgroundColor: "green", color: "white" }}
+											onClick={() => finish(appointment.id)}
+										>
+											finish
 										</button>
 									</td>
 									<td>
-										<button style={{ backgroundColor: 'red', color: 'white' }}
-											onClick={() => cancel(appointment.id)}>cancel
+										<button
+											style={{ backgroundColor: "red", color: "white" }}
+											onClick={() => cancel(appointment.id)}
+										>
+											cancel
 										</button>
 									</td>
 								</tr>
