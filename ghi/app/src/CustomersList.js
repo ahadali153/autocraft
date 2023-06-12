@@ -50,12 +50,13 @@ function CustomersList() {
 					<col style={{ width: "37%" }} />
 					<col style={{ width: "5%" }} />
 				</colgroup>
-				<thead className="table-dark">
+				<thead>
 					<tr>
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Phone Number</th>
 						<th>Address</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -67,7 +68,11 @@ function CustomersList() {
 								<td>{customer.phone_number}</td>
 								<td>{customer.address}</td>
 								<td>
-									<button onClick={() => deleteCustomer(customer.id)}>
+									<button
+										type="button"
+										className="btn btn-outline-danger btn-sm"
+										onClick={() => deleteCustomer(customer.id)}
+									>
 										Remove
 									</button>
 								</td>

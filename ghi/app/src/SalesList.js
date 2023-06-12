@@ -56,13 +56,14 @@ function SalesList() {
 					<col style={{ width: "15%" }} />
 					<col style={{ width: "10%" }} />
 				</colgroup>
-				<thead className="table-dark">
+				<thead>
 					<tr>
 						<th>Salesperson</th>
 						<th>Employee ID</th>
 						<th>Customer</th>
 						<th>VIN</th>
 						<th>Price</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -79,7 +80,13 @@ function SalesList() {
 								<td>{sale.automobile.vin}</td>
 								<td>{sale.price}</td>
 								<td>
-									<button onClick={() => deleteSale(sale.id)}>Remove</button>
+									<button
+										type="button"
+										className="btn btn-outline-danger btn-sm"
+										onClick={() => deleteSale(sale.id)}
+									>
+										Remove
+									</button>
 								</td>
 							</tr>
 						);

@@ -41,7 +41,7 @@ function AutomobilesList() {
 					<col style={{ width: "20%" }} />
 					<col style={{ width: "5%" }} />
 				</colgroup>
-				<thead className="table-dark">
+				<thead>
 					<tr>
 						<th>VIN</th>
 						<th>Color</th>
