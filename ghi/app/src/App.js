@@ -19,6 +19,7 @@ import ModelsList from "./ModelsList";
 import CreateModelForm from "./CreateModelForm";
 import AutomobilesList from "./AutomobilesList.js";
 import CreateAutomobile from "./CreateAutomobile";
+import NotFound from "./NotFound";
 
 function App() {
 	return (
@@ -58,6 +59,7 @@ function App() {
 						<Route index element={<AutomobilesList />} />
 						<Route path="create" element={<CreateAutomobile />} />
 					</Route>
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

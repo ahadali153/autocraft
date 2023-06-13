@@ -65,7 +65,6 @@ function CreateSaleForm() {
 		data.salesperson = formData.salesperson;
 		data.customer = formData.customer;
 		data.price = formData.price;
-		console.log(data);
 
 		const url = "http://localhost:8090/api/sales/";
 		const fetchConfig = {
