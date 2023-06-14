@@ -38,14 +38,14 @@ function SalesList() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./create">
-						<button type="button" class="btn btn-info">
+						<button type="button" className="btn btn-info">
 							Create a new sale!
 						</button>
 					</NavLink>
 				</li>
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./history">
-						<button type="button" class="btn btn-info">
+						<button type="button" className="btn btn-info">
 							View sale history
 						</button>
 					</NavLink>

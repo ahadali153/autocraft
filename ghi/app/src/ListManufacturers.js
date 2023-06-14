@@ -34,7 +34,7 @@ function ListManufacturers() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./new">
-						<button type="button" class="btn btn-info">
+						<button type="button" className="btn btn-info">
 							Create a Manufacturer!
 						</button>
 					</NavLink>

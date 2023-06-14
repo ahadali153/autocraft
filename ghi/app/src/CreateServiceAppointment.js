@@ -32,6 +32,7 @@ function AppointmentFrom() {
 		const value = event.target.value;
 		setTechnicianChange(value);
 	};
+	const [hasCreated, setHasCreated] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -44,7 +45,6 @@ function AppointmentFrom() {
 			customer: customer,
 			technician: Technician,
 		};
-
 
 		const appointmentURL = "http://localhost:8080/api/appointments/";
 		const fetchConfig = {
@@ -62,6 +62,7 @@ function AppointmentFrom() {
 			setDate("");
 			setReason("");
 			setTechnicianChange("");
+			setHasCreated(true);
 		}
 	};
 
@@ -78,13 +79,22 @@ function AppointmentFrom() {
 	useEffect(() => {
 		fetchData();
 	}, []);
-
+	let messageClasses = "alert alert-success d-none mb-0";
+	let formClasses = "";
+	if (hasCreated) {
+		messageClasses = "alert alert-success mb-0";
+		formClasses = "d-none";
+	}
 	return (
 		<div className="row">
 			<div className="offset-3 col-6">
 				<div className="shadow p-4 mt-4">
 					<h1>Create A Service Request</h1>
-					<form onSubmit={handleSubmit} id="create-service-form">
+					<form
+						onSubmit={handleSubmit}
+						id="create-service-form"
+						className={formClasses}
+					>
 						<div className="form-floating mb-3">
 							<input
 								onChange={handleVinChange}
@@ -158,6 +168,9 @@ function AppointmentFrom() {
 						</div>
 						<button className="btn btn-primary">Create</button>
 					</form>
+					<div className={messageClasses} id="success-message">
+						Congratulations on the sale!
+					</div>
 				</div>
 			</div>
 		</div>

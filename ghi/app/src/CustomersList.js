@@ -38,7 +38,7 @@ function CustomersList() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./add">
-						<button type="button" class="btn btn-info">
+						<button type="button" className="btn btn-info">
 							Add a new customer!
 						</button>
 					</NavLink>

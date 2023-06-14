@@ -68,15 +68,15 @@ function ListAppointments() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./new">
-						<button type="button" class="btn btn-info">
+						<button type="button" className="btn btn-info">
 							Schedule Service
 						</button>
 					</NavLink>
 				</li>
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./history">
-						<button type="button" class="btn btn-info">
-							Schedule History
+						<button type="button" className="btn btn-info">
+							Service History
 						</button>
 					</NavLink>
 				</li>
