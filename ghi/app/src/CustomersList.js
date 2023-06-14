@@ -38,11 +38,14 @@ function CustomersList() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./add">
-						Add a new customer!
+						<button type="button" class="btn btn-info">
+							Add a new customer!
+						</button>
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-hover table-striped-columns">
+			<h1 style={{ fontSize: "2em" }}>Customers</h1>
+			<table className="table table-hover  ">
 				<colgroup>
 					<col style={{ width: "18%" }} />
 					<col style={{ width: "18%" }} />

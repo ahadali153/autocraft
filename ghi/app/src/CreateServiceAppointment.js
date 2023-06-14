@@ -45,7 +45,6 @@ function AppointmentFrom() {
 			technician: Technician,
 		};
 
-		console.log(data);
 
 		const appointmentURL = "http://localhost:8080/api/appointments/";
 		const fetchConfig = {
@@ -58,8 +57,6 @@ function AppointmentFrom() {
 
 		const response = await fetch(appointmentURL, fetchConfig);
 		if (response.ok) {
-			const newAppointment = await response.json();
-			console.log(newAppointment);
 			setVin("");
 			setCustomer("");
 			setDate("");

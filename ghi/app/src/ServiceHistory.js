@@ -43,6 +43,15 @@ function ServiceHistory() {
 		setMatchVIN(value.toUpperCase());
 	};
 
+	const createButton = (input) => {
+		if (input == "finished") {
+			return <button className="alert alert-success btn-sm">finished</button>;
+		} else if (input == "pending") {
+			return <button className="alert alert-warning btn-sm">pending</button>;
+		} else {
+			return <button className="alert alert-danger btn-sm">canceled</button>;
+		}
+	};
 	return (
 		<>
 			<h1 style={{ fontSize: "2em" }}>Service History</h1>
@@ -52,7 +61,7 @@ function ServiceHistory() {
 				value={matchVIN}
 				onChange={handleVINChange}
 			/>
-			<table className="table table-hover table-striped-columns">
+			<table className="table table-hover" id="historytable">
 				<thead>
 					<tr>
 						<th>VIN</th>
@@ -88,7 +97,7 @@ function ServiceHistory() {
 										{appointment.technician.employee_id}
 									</td>
 									<td>{appointment.reason}</td>
-									<td>{appointment.status}</td>
+									<td>{createButton(appointment.status)}</td>
 								</tr>
 							);
 						})}

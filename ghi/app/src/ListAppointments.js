@@ -68,17 +68,21 @@ function ListAppointments() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./new">
-						Schedule Service
+						<button type="button" class="btn btn-info">
+							Schedule Service
+						</button>
 					</NavLink>
 				</li>
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./history">
-						Schedule History
+						<button type="button" class="btn btn-info">
+							Schedule History
+						</button>
 					</NavLink>
 				</li>
 			</ul>
 			<h1 style={{ fontSize: "2em" }}>Service Appointments</h1>
-			<table className="table table-hover table-striped-columns">
+			<table className="table table-hover">
 				<thead>
 					<tr>
 						<th>VIN</th>

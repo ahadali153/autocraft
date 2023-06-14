@@ -38,16 +38,21 @@ function SalesList() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./create">
-						Create a new sale!
+						<button type="button" class="btn btn-info">
+							Create a new sale!
+						</button>
 					</NavLink>
 				</li>
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./history">
-						View sale history
+						<button type="button" class="btn btn-info">
+							View sale history
+						</button>
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-hover table-striped-columns">
+			<h1 style={{ fontSize: "2em" }}>Sales</h1>
+			<table className="table table-hover">
 				<colgroup>
 					<col style={{ width: "20%" }} />
 					<col style={{ width: "15%" }} />

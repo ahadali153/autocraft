@@ -17,19 +17,24 @@ function ListTechnicians() {
 	}, []);
 
 	return (
-		<div>
+		<div className="container-fluid">
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./new">
-						Create Technician Profile!
+						<button type="button" class="btn btn-info">
+							Create Technician Profile!
+						</button>
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-hover table-striped-columns">
+			<h1 style={{ fontSize: "2em" }}>Technicians</h1>
+			<table className="table table-hover  ">
+				<colgroup>
+					<col style={{ width: "40%" }} />
+					<col style={{ width: "30%" }} />
+					<col style={{ width: "30%" }} />
+				</colgroup>
 				<thead>
-					<tr>
-						<th style={{ fontSize: "2em" }}>Technicians</th>
-					</tr>
 					<tr>
 						<th>Employee ID</th>
 						<th>First Name</th>

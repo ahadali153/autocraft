@@ -34,12 +34,14 @@ function ListManufacturers() {
 			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 				<li className="nav-item">
 					<NavLink className="nav-link" aria-current="page" to="./new">
-						Create a Manufacturer!
+						<button type="button" class="btn btn-info">
+							Create a Manufacturer!
+						</button>
 					</NavLink>
 				</li>
 			</ul>
 			<h2 style={{ fontSize: "2em" }}>Manufacturers</h2>
-			<table className="table table-hover table-striped-columns">
+			<table className="table table-hover  ">
 				<colgroup>
 					<col style={{ width: "90%" }} />
 					<col style={{ width: "10%" }} />

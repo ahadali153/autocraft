@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 function SalespersonHistory() {
 	const [salespeople, setSalespeople] = useState([]);
 	const [salesperson, setSalesperson] = useState([]);
@@ -52,14 +51,14 @@ function SalespersonHistory() {
 				</select>
 			</div>
 			<div>
-				<table className="table table-hover table-striped-columns">
+				<table className="table table-hover" id="historytable">
 					<colgroup>
 						<col style={{ width: "20%" }} />
 						<col style={{ width: "20%" }} />
 						<col style={{ width: "40%" }} />
 						<col style={{ width: "20%" }} />
 					</colgroup>
-					<thead className="table-dark">
+					<thead>
 						<tr>
 							<th>Salesperson</th>
 							<th>Customer</th>
