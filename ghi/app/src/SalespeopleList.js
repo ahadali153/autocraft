@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { GiRingBox } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 
 function SalespeopleList() {
@@ -35,16 +36,20 @@ function SalespeopleList() {
 
 	return (
 		<div className="container-fluid">
-			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-				<li className="nav-item">
-					<NavLink className="nav-link" aria-current="page" to="./create">
-						<button type="button" className="btn btn-info">
-							Create a new salesperson!
-						</button>
-					</NavLink>
-				</li>
-			</ul>
-			<h1 style={{ fontSize: "2em" }}>Salespeople</h1>
+			<div className="container">
+				<div className="row">
+					<div className="col-3">
+						<h1 style={{ color: "black" }}>Salespeople</h1>
+					</div>
+					<div className="col-1">
+						<NavLink className="nav-link" aria-current="page" to="./create">
+							<button type="button" className="btn btn-dark">
+								+
+							</button>
+						</NavLink>
+					</div>
+				</div>
+			</div>
 			<table className="table table-hover">
 				<colgroup>
 					<col style={{ width: "30%" }} />

@@ -31,3 +31,8 @@ tr {
 	display: table;
 	height: 100%;
 }
+
+.table-hover tbody tr:hover td {
+	background: rgba(14, 14, 14, 0.336);
+	color: rgba(4, 204, 253, 0.642);
+}

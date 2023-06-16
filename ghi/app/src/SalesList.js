@@ -35,23 +35,25 @@ function SalesList() {
 
 	return (
 		<div className="container-fluid">
-			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-				<li className="nav-item">
+			<div className="row">
+				<div className="col-2">
+					<h1 style={{ color: "black" }}>Sales</h1>
+				</div>
+				<div className="col-1">
 					<NavLink className="nav-link" aria-current="page" to="./create">
-						<button type="button" className="btn btn-info">
-							Create a new sale!
+						<button type="button" className="btn btn-dark">
+							+
 						</button>
 					</NavLink>
-				</li>
-				<li className="nav-item">
+				</div>
+				<div className="col-2">
 					<NavLink className="nav-link" aria-current="page" to="./history">
-						<button type="button" className="btn btn-info">
-							View sale history
+						<button type="button" className="btn btn-dark">
+							Sale history
 						</button>
 					</NavLink>
-				</li>
-			</ul>
-			<h1 style={{ fontSize: "2em" }}>Sales</h1>
+				</div>
+			</div>
 			<table className="table table-hover">
 				<colgroup>
 					<col style={{ width: "20%" }} />

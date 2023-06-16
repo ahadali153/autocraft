@@ -65,23 +65,27 @@ function ListAppointments() {
 	};
 	return (
 		<div>
-			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-				<li className="nav-item">
-					<NavLink className="nav-link" aria-current="page" to="./new">
-						<button type="button" className="btn btn-info">
-							Schedule Service
-						</button>
-					</NavLink>
-				</li>
-				<li className="nav-item">
-					<NavLink className="nav-link" aria-current="page" to="./history">
-						<button type="button" className="btn btn-info">
-							Service History
-						</button>
-					</NavLink>
-				</li>
-			</ul>
-			<h1 style={{ fontSize: "2em" }}>Service Appointments</h1>
+			<div className="container">
+				<div className="row">
+					<div className="col-5">
+						<h1 style={{ color: "black" }}>Service Appointments</h1>
+					</div>
+					<div className="col-1">
+						<NavLink className="nav-link" aria-current="page" to="./new">
+							<button type="button" className="btn btn-dark">
+								+
+							</button>
+						</NavLink>
+					</div>
+					<div className="col-3">
+						<NavLink className="nav-link" aria-current="page" to="./history">
+							<button type="button" className="btn btn-dark">
+								Service History
+							</button>
+						</NavLink>
+					</div>
+				</div>
+			</div>
 			<table className="table table-hover">
 				<thead>
 					<tr>

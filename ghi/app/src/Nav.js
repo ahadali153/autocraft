@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-
+import { GiCarWheel } from "react-icons/gi";
 function Nav() {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark">
 			<div className="container-fluid">
+				<GiCarWheel color="black" size="2rem" />
 				<Link className="navbar-brand" to="/">
-					CarCar
+					AutoCraft
 				</Link>
 				<button
 					className="navbar-toggler"
