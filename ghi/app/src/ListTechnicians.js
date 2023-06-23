@@ -1,3 +1,4 @@
+import './ServiceHistory.css'
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 
@@ -19,38 +20,36 @@ function ListTechnicians() {
 
     return (
         <div>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                    <NavLink to='./new'>
-                        <button type="button">
-                            Create Technician Profile
-                        </button>
-                    </NavLink>
-                </li>
-            </ul>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th style={{ fontSize: '2em' }}>Technicians</th>
-                    </tr>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>First Name</th>
-                        <th>last Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {technicians.map((technician, index) => {
-                        return (
-                            <tr key={index}>
-                                <td>{technician.employee_id}</td>
-                                <td>{technician.first_name}</td>
-                                <td>{technician.last_name}</td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <NavLink to='./new'>
+                    <button className='button-10' type="button">
+                        Create Technician Profile
+                    </button>
+                </NavLink>
+            </div>
+            <h1 style={{ fontSize: '2em', color: "whitesmoke" }}>Technicians</h1>
+            <div className="scrollable-div">
+                <table className="table" style={{ color: "whitesmoke" }} >
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>First Name</th>
+                            <th>last Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {technicians.map((technician, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{technician.employee_id}</td>
+                                    <td>{technician.first_name}</td>
+                                    <td>{technician.last_name}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

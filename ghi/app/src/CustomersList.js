@@ -42,7 +42,7 @@ function CustomersList() {
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-hover table-striped-columns">
+			<table className="table" style={{ color: 'whitesmoke' }}>
 				<colgroup>
 					<col style={{ width: "18%" }} />
 					<col style={{ width: "18%" }} />
@@ -50,7 +50,7 @@ function CustomersList() {
 					<col style={{ width: "37%" }} />
 					<col style={{ width: "5%" }} />
 				</colgroup>
-				<thead className="table-dark">
+				<thead>
 					<tr>
 						<th>First Name</th>
 						<th>Last Name</th>

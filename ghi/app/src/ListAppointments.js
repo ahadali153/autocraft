@@ -1,3 +1,4 @@
+import './ServiceHistory.css'
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -65,69 +66,65 @@ function ListAppointments() {
 	};
 	return (
 		<div>
-			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-				<li className="nav-item">
-					<NavLink to='./new'>
-						<button type="button">
-							Schedule Service
-						</button>
-					</NavLink>
-				</li>
-				<li className="nav-item">
-					<NavLink to='./history'>
-						<button type="button">
-							Schedule History
-						</button>
-					</NavLink>
-				</li>
-			</ul>
-			<table className="table table-striped">
-				<thead>
-					<tr>
-						<th style={{ fontSize: '2em' }}>Service Appointments</th>
-					</tr>
-					<tr>
-						<th>VIN</th>
-						<th>VIP</th>
-						<th>Customer</th>
-						<th>Appointment</th>
-						<th>Technician</th>
-						<th>Reason</th>
-					</tr>
-				</thead>
-				<tbody>
-					{appointments
-						.filter(appointment => appointment.status === 'pending')
-						.map((appointment, index) => {
-							let formatDate = new Date(appointment.date_time);
-							return (
-								<tr key={index}>
-									<td>{appointment.vin}</td>
-									<td>{isVIP(appointment.vin)}</td>
-									<td>{appointment.customer}</td>
-									<td>{formatDate.toLocaleString('en-US',
-										{
-											year: 'numeric', month: 'numeric',
-											day: 'numeric', hour: '2-digit', minute: '2-digit'
-										})}
-									</td>
-									<td>{appointment.technician.last_name} {appointment.technician.employee_id}</td>
-									<td>{appointment.reason}</td>
-									<td>
-										<button style={{ backgroundColor: 'green', color: 'white' }}
-											onClick={() => finish(appointment.id)}>finish
-										</button>
-									</td>
-									<td>
-										<button style={{ backgroundColor: 'red', color: 'white' }}
-											onClick={() => cancel(appointment.id)}>cancel
-										</button>
-									</td>
-								</tr>
-							);
-						})}
-				</tbody>
-			</table>
+			<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+				<NavLink to='./new'>
+					<button className='button-10' type="button">
+						Schedule Service
+					</button>
+				</NavLink>
+				<NavLink to='./history'>
+					<button className='button-10' type="button">
+						Service History
+					</button>
+				</NavLink>
+			</div>
+			<h1 style={{ fontSize: "2em", color: "whitesmoke" }}>Service Appointments</h1>
+			<div className="scrollable-div">
+				<table className="table" style={{ color: 'whitesmoke' }}>
+					<thead>
+						<tr>
+							<th>VIN</th>
+							<th>VIP</th>
+							<th>Customer</th>
+							<th>Appointment</th>
+							<th>Technician</th>
+							<th>Reason</th>
+						</tr>
+					</thead>
+					<tbody>
+						{appointments
+							.filter(appointment => appointment.status === 'pending')
+							.map((appointment, index) => {
+								let formatDate = new Date(appointment.date_time);
+								return (
+									<tr key={index} style={{ backgroundColor: "rgba(60, 117, 240, 0.1)" }}>
+										<td>{appointment.vin}</td>
+										<td>{isVIP(appointment.vin)}</td>
+										<td>{appointment.customer}</td>
+										<td>{formatDate.toLocaleString('en-US',
+											{
+												year: 'numeric', month: 'numeric',
+												day: 'numeric', hour: '2-digit', minute: '2-digit'
+											})}
+										</td>
+										<td>{appointment.technician.last_name} {appointment.technician.employee_id}</td>
+										<td>{appointment.reason}</td>
+										<td>
+											<button style={{ backgroundColor: 'green', color: 'white' }}
+												onClick={() => finish(appointment.id)}>finish
+											</button>
+										</td>
+										<td>
+											<button style={{ backgroundColor: 'red', color: 'white' }}
+												onClick={() => cancel(appointment.id)}>cancel
+											</button>
+										</td>
+									</tr>
+								);
+							})}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 }

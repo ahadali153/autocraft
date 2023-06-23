@@ -33,7 +33,7 @@ function CreateManufacturerForm() {
 		<div className="row">
 			<div className="offset-3 col-6">
 				<div className="shadow p-4 mt-4">
-					<h1>Create Manufacturer</h1>
+					<h1 style={{ color: 'whitesmoke' }} >Create Manufacturer</h1>
 					<form onSubmit={handleSubmit} id="create-manufacturer-form">
 						<div className="form-floating mb-3">
 							<input

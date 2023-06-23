@@ -25,10 +25,8 @@ function SalesList() {
 		const response = await fetch(deleteUrl, fetchConfig);
 
 		if (response.ok) {
-			// Refresh the shoe list after successful deletion
 			fetchData();
 		} else {
-			// Handle error if the deletion was not successful
 			console.log("Failed to delete salesperson");
 		}
 	};
@@ -47,7 +45,7 @@ function SalesList() {
 					</NavLink>
 				</li>
 			</ul>
-			<table className="table table-hover table-striped-columns">
+			<table className="table" style={{ color: 'whitesmoke' }}>
 				<colgroup>
 					<col style={{ width: "20%" }} />
 					<col style={{ width: "15%" }} />
@@ -56,7 +54,7 @@ function SalesList() {
 					<col style={{ width: "15%" }} />
 					<col style={{ width: "10%" }} />
 				</colgroup>
-				<thead className="table-dark">
+				<thead>
 					<tr>
 						<th>Salesperson</th>
 						<th>Employee ID</th>

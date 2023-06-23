@@ -12,31 +12,33 @@ function ListManufacturers() {
         }
     };
     useEffect(() => {
-		fetchData();
-	}, []);
+        fetchData();
+    }, []);
 
     return (
-        <table className="table table-striped">
-        <thead>
-        <tr>
-            <th style={{ fontSize: '2em' }}>Manufacturers</th>
-        </tr>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        {manufacturers.map((manufacturer, index) => {
-        return (
-        <tr key={index}>
-            <td>{ manufacturer.name }</td>
+        <div>
+            <h1 style={{ fontSize: '2em', color: 'whitesmoke' }}>Manufacturers</h1>
+            <div className="scrollable-div">
+                <table className="table" style={{ color: 'whitesmoke' }}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {manufacturers.map((manufacturer, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{manufacturer.name}</td>
 
-        </tr>
-        );
-        })}
-        </tbody>
-        </table>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
-    }
+}
 
-    export default ListManufacturers;
+export default ListManufacturers;

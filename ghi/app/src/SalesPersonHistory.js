@@ -31,7 +31,7 @@ function SalespersonHistory() {
 	return (
 		<div>
 			<div>
-				<h1>Salesperson History</h1>
+				<h1 style={{ color: 'whitesmoke' }}>Salesperson History</h1>
 			</div>
 			<div className="mb-3">
 				<select
@@ -52,14 +52,14 @@ function SalespersonHistory() {
 				</select>
 			</div>
 			<div>
-				<table className="table table-hover table-striped-columns">
+				<table className="table" style={{ color: 'whitesmoke' }}>
 					<colgroup>
 						<col style={{ width: "20%" }} />
 						<col style={{ width: "20%" }} />
 						<col style={{ width: "40%" }} />
 						<col style={{ width: "20%" }} />
 					</colgroup>
-					<thead className="table-dark">
+					<thead>
 						<tr>
 							<th>Salesperson</th>
 							<th>Customer</th>

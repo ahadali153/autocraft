@@ -111,7 +111,7 @@ function CreateSaleForm() {
 		<div className="row">
 			<div className="offset-3 col-6">
 				<div className="shadow p-4 mt-4">
-					<h1>Create a new sale</h1>
+					<h1 style={{ color: 'whitesmoke' }}>Create a new sale</h1>
 					<form
 						onSubmit={handleSubmit}
 						className={formClasses}

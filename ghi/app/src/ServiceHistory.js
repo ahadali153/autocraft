@@ -1,3 +1,4 @@
+import './ServiceHistory.css'
 import React, { useState, useEffect } from "react";
 
 function ServiceHistory() {
@@ -43,57 +44,72 @@ function ServiceHistory() {
         setMatchVIN(value);
     };
 
+    const getRowColor = (status) => {
+        switch (status) {
+            case 'pending':
+                return '';
+            case 'canceled':
+                return 'rgba(173, 40, 40, 0.5)';
+            case 'finished':
+                return 'rgba(64, 168, 40, 0.5)';
+            default:
+                return '';
+        }
+    };
+
     return (
         <>
-            <h1 style={{ fontSize: "2em" }}>Service History</h1>
+            <h1 style={{ fontSize: "2em", color: "whitesmoke" }}>Service History</h1>
             <input
                 type="text"
                 placeholder="Find VIN"
                 value={matchVIN}
                 onChange={handleVINChange}
             />
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>VIN</th>
-                        <th>VIP</th>
-                        <th>Customer</th>
-                        <th>Appointment</th>
-                        <th>Technician</th>
-                        <th>Reason</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {appointments
-                        .filter((appointment) => appointment.vin.includes(matchVIN))
-                        .map((appointment, index) => {
-                            let formatDate = new Date(appointment.date_time);
-                            return (
-                                <tr key={index}>
-                                    <td>{appointment.vin}</td>
-                                    <td>{isVIP(appointment.vin)}</td>
-                                    <td>{appointment.customer}</td>
-                                    <td>
-                                        {formatDate.toLocaleString("en-US", {
-                                            year: "numeric",
-                                            month: "numeric",
-                                            day: "numeric",
-                                            hour: "2-digit",
-                                            minute: "2-digit",
-                                        })}
-                                    </td>
-                                    <td>
-                                        {appointment.technician.last_name}{" "}
-                                        {appointment.technician.employee_id}
-                                    </td>
-                                    <td>{appointment.reason}</td>
-                                    <td>{appointment.status}</td>
-                                </tr>
-                            );
-                        })}
-                </tbody>
-            </table>
+            <div className="scrollable-div">
+                <table className="table" style={{ color: "whitesmoke" }}>
+                    <thead>
+                        <tr>
+                            <th>VIN</th>
+                            <th>VIP</th>
+                            <th>Customer</th>
+                            <th>Appointment</th>
+                            <th>Technician</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {appointments
+                            .filter((appointment) => appointment.vin.includes(matchVIN))
+                            .map((appointment, index) => {
+                                let formatDate = new Date(appointment.date_time);
+                                return (
+                                    <tr key={index} style={{ backgroundColor: getRowColor(appointment.status) }}>
+                                        <td>{appointment.vin}</td>
+                                        <td>{isVIP(appointment.vin)}</td>
+                                        <td>{appointment.customer}</td>
+                                        <td>
+                                            {formatDate.toLocaleString("en-US", {
+                                                year: "numeric",
+                                                month: "numeric",
+                                                day: "numeric",
+                                                hour: "2-digit",
+                                                minute: "2-digit",
+                                            })}
+                                        </td>
+                                        <td>
+                                            {appointment.technician.last_name}{" "}
+                                            {appointment.technician.employee_id}
+                                        </td>
+                                        <td>{appointment.reason}</td>
+                                        <td>{appointment.status}</td>
+                                    </tr>
+                                );
+                            })}
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 }
